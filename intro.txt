@@ -23,7 +23,8 @@ on github with a description of the changes.
 Working directory: Folder where you work is saved on
 
 Staging area: Where the selected files you want to commit are kept before commit. code: git add
-to remove file or files from the staging area - code: git rm --cached filename.
+you can also use code: git stage filename  #to add files in the staging area.
+to remove file or files from the staging area - code: git rm --cached filename. or git restore --staged filename.
 If there is a change in the staged file and the one in the working directory, the removed command will not be executed.
 Two things you can do in this case:
 - Stage the file again and and run the git rm command again
@@ -34,3 +35,10 @@ gets added once you commit. code: git commit
 
 commit message: commit message carries information about the files or changes that you made in the file that is about to be
 to be committed. code: git commit -m "#commit message"
+
+##more git add and git commit commands
+
+
+git add . ##stage all changes in the folder at once
+git add <path> : Use git add to stage a specific file or directory.
+git add -p : Use an interactive mode to choose which hunks of changes to stage.
