@@ -58,5 +58,24 @@ to have it display in one line - code: git log --oneline
 
 
 
+##Amending mistakes in commit
+
+If you omitted a file or had typo in commit message, you can amend it.
+Stage in the file you forgot to add and run the code below
+code: git commit --amend
+In the file that will open in your code editor, you can edit the commit message, check if the new file has been 
+added then close the file.
+##this is only used to amend the last commit not 2 or 3 commits earlier
+
+To amend earlier commits use git rebase. code: git rebase -i HEAD~n (number of commits) if n is 3, it will display the
+last 3 commits.
 
 
+##GIT IGNORE HEAD
+
+To make git not track every file in your project you can use the .gitignore file to hide these files and folders
+from git.
+
+you can add file extension e.g .txt or folder ignore_this/
+
+for files to ignore while working on a project visit: https://www.toptal.com/developers/gitignore/
