@@ -1,0 +1,36 @@
+# This is a git crash course for self
+
+git init: to initialize a repository. This will make Git track the activities in that folder. Once the folder is created
+initialized, you should not run this command again in the child folders.
+
+git status: to check the status of a repository or if there's a repo at all.
+
+to remove git repo from the directory, delete the .git directory.
+
+code: ls -a #to see hidden files and directories
+        rm -rf .git #to remove the git directory
+
+#Once done, git no longer tracks the folder.
+
+#Best practice will be to only initialize project directories individually.
+
+
+
+git commit: check point in time. As you work can commit different changes to your file or project and have it saved 
+on github with a description of the changes.
+
+3 things here:
+Working directory: Folder where you work is saved on
+
+Staging area: Where the selected files you want to commit are kept before commit. code: git add
+to remove file or files from the staging area - code: git rm --cached filename.
+If there is a change in the staged file and the one in the working directory, the removed command will not be executed.
+Two things you can do in this case:
+- Stage the file again and and run the git rm command again
+- force remove the file by running git rm command with -f. Code: rm --cached -f "filename"
+
+Repository: the .git folder that was created when you initialized git. This is where the files in the staging area area
+gets added once you commit. code: git commit
+
+commit message: commit message carries information about the files or changes that you made in the file that is about to be
+to be committed. code: git commit -m "#commit message"
