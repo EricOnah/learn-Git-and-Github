@@ -42,3 +42,21 @@ to be committed. code: git commit -m "#commit message"
 git add . ##stage all changes in the folder at once
 git add <path> : Use git add to stage a specific file or directory.
 git add -p : Use an interactive mode to choose which hunks of changes to stage.
+
+
+
+##keep each commit focused on a single change (Atomic Commit)
+##to get more options visit - https://git-scm.com/docs
+
+
+##GIT log
+displays information about the commit. code: git log
+
+to have it display in one line - code: git log --oneline
+
+##to get more options visit - https://git-scm.com/docs
+
+
+
+
+
