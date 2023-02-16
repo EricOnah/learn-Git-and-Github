@@ -1,0 +1,23 @@
+##Basic bash commands:
+ 
+ls - list files in a folder
+ls -la
+ls -l
+mkdir - make directory
+cd - change directory takes file root format cd dektop/'Tochi Test'
+'' - used to write names with space 'another file'
+.. - parent directory cd ..
+. - current directory
+echo - used to print on the terminal
+> - used to add text to file echo 'Another one' > new.txt . it can also be used to add a folder to a file. eg echo log/ > .gitignore
+	can also overwrite the contents of a file.
+>> - used to append text to a file echo 'This is good' >> new.txt. Used to add new item to a file.
+cat - used to open a file on the terminal cat new.txt
+start . - used to open a folder. Start + file name will open the file start new.txt
+touch - used to create new file
+pwd - print working dir 
+--help - used to print help for commands
+nano - used to edit file in the command line nano new.txt
+rm - used to remove files and directories
+rm -rf - used to remove folder
+mv - used to rename files mv file1.txt main.js this will rename file1.txt to main.js
