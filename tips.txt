@@ -3,3 +3,5 @@
 #Hashes are what enable Git to share data efficiently between repositories. If two files are the same, 
 their hashes are guaranteed to be the same. Similarly, if two commits contain the same files and 
 have the same ancestors, their hashes will be the same as well.
+
+##another code for switching between branches - code: git checkout <branch name>
