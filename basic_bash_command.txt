@@ -15,7 +15,7 @@ echo - used to print on the terminal
 cat - used to open a file on the terminal cat new.txt
 start . - used to open a folder. Start + file name will open the file start new.txt
 touch - used to create new file
-pwd - print working dir 
+pwd - print working directory
 --help - used to print help for commands
 nano - used to edit file in the command line nano new.txt
 rm - used to remove files and directories

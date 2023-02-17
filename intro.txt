@@ -79,3 +79,21 @@ from git.
 you can add file extension e.g .txt or folder ignore_this/
 
 for files to ignore while working on a project visit: https://www.toptal.com/developers/gitignore/
+
+
+
+##Branches (Alternative timelines) - Alternative timeline where you can work on the project but in a different timeline 
+that the main branch or the parent branch is not affected by the changes you make in the new branch.
+
+##HEAD = current branch
+
+to see current branches - code: git branch
+if there is more than one branch, the branch name with * is the branch you are on.
+ 
+To create a new branch - code: git branch <branch-name> ##this doesn't switch you to the branch just creates.
+
+To switch to a new branch - code: git switch <branch-name>
+
+##changes committed to a branch can only be seen when on that branch.
+
+To create a new branch and switch to the new branch you add -c to switch. - code: git switch -c <branch-name>
