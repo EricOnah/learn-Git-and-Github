@@ -95,3 +95,5 @@ To create a new branch - code: git branch <branch-name> ##this doesn't switch yo
 To switch to a new branch - code: git switch <branch-name>
 
 ##changes committed to a branch can only be seen when on that branch.
+
+To create a new branch and switch to the new branch you add -c to switch. - code: git switch -c <branch-name>
