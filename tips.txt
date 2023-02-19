@@ -11,4 +11,6 @@ have the same ancestors, their hashes will be the same as well.
 ##another code for switching between branches - code: git checkout <branch name>
 
 ##before attempting to delete anything, alway make a backup.
->>>>>>> 5bcc579
+
+##types of merge: Fast forward, Merge commit, conflicts
+
