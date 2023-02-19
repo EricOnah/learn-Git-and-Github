@@ -1,2 +1,14 @@
+<<<<<<< HEAD
 
 ##another code for switching between branches - code: git checkout <branch name>
+=======
+##here I will be dropping extra tips on how to use git
+
+#Hashes are what enable Git to share data efficiently between repositories. If two files are the same, 
+their hashes are guaranteed to be the same. Similarly, if two commits contain the same files and 
+have the same ancestors, their hashes will be the same as well.
+
+##another code for switching between branches - code: git checkout <branch name>
+
+##before attempting to delete anything, alway make a backup.
+>>>>>>> 5bcc579
