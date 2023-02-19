@@ -5,3 +5,5 @@ their hashes are guaranteed to be the same. Similarly, if two commits contain th
 have the same ancestors, their hashes will be the same as well.
 
 ##another code for switching between branches - code: git checkout <branch name>
+
+##before attempting to delete anything, alway make a backup.
