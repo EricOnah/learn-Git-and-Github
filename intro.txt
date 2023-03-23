@@ -97,3 +97,26 @@ To switch to a new branch - code: git switch <branch-name>
 ##changes committed to a branch can only be seen when on that branch.
 
 To create a new branch and switch to the new branch you add -c to switch. - code: git switch -c <branch-name>
+
+#Merge
+
+## You can use merge to merge different branches. It could be a fast forward merge, merge commit or merge conflict.
+Fast Forward Merge: Merging branches that have the same files but some changes in one branch is not in the other.
+These changes do not conflict with the file on the second branch so the merge is seamless.
+Merge Commit: Merging branches that have new files in one or both branches. The merge will just commit these files and
+Merge Conflict: Merging branches that the same files but different changes have been made to one or more of the files in the other branch
+each of the branch so there is conflict to resolve before the merge is completed.
+
+code: git merge <branch name>
+
+##git diff
+Used to see differences between between files in unstaged area and files in staged area.
+
+code: git diff
+
+git diff HEAD - used to see the changes in working directory compared to the last commit in the
+
+git diff --staged - shows the changes in staged area compared to the last commit
+
+git diff shows the differences between the stagging area and working directory. The - is the stagging area
+while the + is the working directory. You can compare and see what is not stagged yet.
