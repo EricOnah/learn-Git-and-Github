@@ -118,5 +118,11 @@ git diff HEAD - used to see the changes in working directory compared to the las
 
 git diff --staged - shows the changes in staged area compared to the last commit
 
+git diff --cached - shows the changes in staged area compared to the last commit
+
 git diff shows the differences between the stagging area and working directory. The - is the stagging area
 while the + is the working directory. You can compare and see what is not stagged yet.
+
+git diff can be used on specific files ba adding the filename
+git diff tips.text
+this can used on all git diff commands (HEAD, --staged or --cached)
