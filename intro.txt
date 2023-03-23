@@ -126,3 +126,7 @@ while the + is the working directory. You can compare and see what is not stagge
 git diff can be used on specific files ba adding the filename
 git diff tips.text
 this can used on all git diff commands (HEAD, --staged or --cached)
+
+git diff can be used to compare two branches. code: git diff branchname...2ndbranchname
+
+to compare specific files in both branches, add the filename after the ...2ndbranchname
