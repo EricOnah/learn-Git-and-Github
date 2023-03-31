@@ -141,6 +141,18 @@ To apply the changes you stash and still have them in the stash to be used again
 When you have multiple stashes because you were using apply instead of pop, you can use - git stash list
 to see all the stashed list
 
-To apply in of the stash in the list you can use - git stash apply stash@{stash number}
+To apply any of the stash in the list you can use - git stash apply stash@{stash number}
 
 To clean up the stash you can use - git stash drop stash@{stash number}
+
+
+##git checkout - 
+
+You can use this to switch to any commit code git checkout <commit hash>
+
+This will remove every changes made after the commit you switch to. The changes are not lost. Once you switch back to 
+the branch that houses the changes, you have them back.(Re-attaching detached HEAD)
+
+You can also reference commits relative to the HEAD by using git checkout HEAD~<n> where is the location of the commit
+from the head. e.g git checkout HEAD~1 (meaning the first commit after HEAD)
+NOTE: HEAD is the commit or branch you're in. you can always check what HEAD is with git log
