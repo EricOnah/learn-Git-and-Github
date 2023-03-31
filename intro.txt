@@ -130,3 +130,17 @@ this can used on all git diff commands (HEAD, --staged or --cached)
 git diff can be used to compare two branches. code: git diff branchname...2ndbranchname
 
 to compare specific files in both branches, add the filename after the ...2ndbranchname
+
+
+##git stash - used to save changes without staging or committing it so you can easily switch branches without
+losing your work.
+To recover the changes - git stash pop
+
+To apply the changes you stash and still have them in the stash to be used again you use - git stash apply
+
+When you have multiple stashes because you were using apply instead of pop, you can use - git stash list
+to see all the stashed list
+
+To apply in of the stash in the list you can use - git stash apply stash@{stash number}
+
+To clean up the stash you can use - git stash drop stash@{stash number}
