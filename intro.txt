@@ -165,3 +165,9 @@ When you checkout to an old commit, you can start a new branch or a new commit b
 
 you can use git checkout -- <filename> for the above function as well. This will revert to the HEAD.
  NOTE: This will only revert unstaged and uncommitted changes.
+
+ ##git restore 
+ performs similar function like the checkout above. git restore doesn't detach from the head into a commit.
+ It reverts the unstaged uncommitted changes without leaving the current HEAD.
+ To specify a particular commit, you use git restore --source <HEAD~n> or <commit hash> file(s)name
+ 
