@@ -156,3 +156,12 @@ the branch that houses the changes, you have them back.(Re-attaching detached HE
 You can also reference commits relative to the HEAD by using git checkout HEAD~<n> where is the location of the commit
 from the head. e.g git checkout HEAD~1 (meaning the first commit after HEAD)
 NOTE: HEAD is the commit or branch you're in. you can always check what HEAD is with git log
+
+To revert immediate changes to in you document you can use git checkout to a previous commit or the HEAD
+
+git checkout <commit hash> or git checkout HEAD~<position of commit from HEAD>
+
+When you checkout to an old commit, you can start a new branch or a new commit based on the old commit you are in.
+
+you can use git checkout -- <filename> for the above function as well. This will revert to the HEAD.
+ NOTE: This will only revert unstaged and uncommitted changes.
