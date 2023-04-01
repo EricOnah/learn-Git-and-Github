@@ -171,3 +171,12 @@ you can use git checkout -- <filename> for the above function as well. This will
  It reverts the unstaged uncommitted changes without leaving the current HEAD.
  To specify a particular commit, you use git restore --source <HEAD~n> or <commit hash> file(s)name
  
+ git restore --staged <filename> can be used to unstage a staged file.
+ To revert a staged file to previous commit, use git restore --staged <filename> to first unstage it
+ then use git restore <filename> to revert the changes.
+
+
+##git reset <commit hash>
+This is used to delete a commit from the top. I for you reset to a 3 commits ago, the most recent commits will be removed
+ This can not be used to delete a targeted commit like first commit only it will all commits that came after that
+ git reset --hard <commit hash> removes all unstaged changes in the working directory
