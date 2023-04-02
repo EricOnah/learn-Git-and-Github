@@ -186,3 +186,26 @@ This is used to delete a commit from the top. I for you reset to a 3 commits ago
  This will revert changes to a commit but won't delete the commit rather creats a new commit as the HEAD containing
  the changes or correction made.
  You can also use git revert to merge commits (i.e changes in different commits)
+
+##git clone <url> used to clone a repo from a remote source to your machine.
+Note: Run git clone in a folder where git has not been initialized because it initializes git.
+
+##Github
+
+Two ways to upload or add a new repo on the github
+
+When the project hasn't started: create an empty repo on github and clone it to your project directory and start
+working and uploading.
+
+When you have a repo on your machine: create a github repo and connect it to the repo o your local machine.
+
+origin - a conventional git remote name. it's just a name for a url and can be renamed
+
+A remote is a url that we make git aware of that we can upload files to from git. (A repo that is not on our machine
+which needs a url so we can link it to our machine and a label to identify it so we can remotely push things into it)
+
+To add a remote, git remote add <label(origin)> <repo url>
+
+To rename a remote - git remote rename <old name> <new name>
+
+To remove a remote - git remote remove <name>
