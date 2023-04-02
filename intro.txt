@@ -209,3 +209,5 @@ To add a remote, git remote add <label(origin)> <repo url>
 To rename a remote - git remote rename <old name> <new name>
 
 To remove a remote - git remote remove <name>
+
+It is possible to have a multiple remote
