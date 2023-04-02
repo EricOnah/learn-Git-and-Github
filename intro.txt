@@ -214,9 +214,6 @@ To remove a remote - git remote remove <name>
 
 It is possible to have a multiple remote
 
-##git push
-
-used to push changes from your machine to remote repositories. code - git push <remote label(origin)> <branch>
 
 #SSH setup - this is used to set secure your activities between your machine and the server
  To do this, visit https://docs.github.com/en/authentication/connecting-to-github-with-ssh
@@ -233,3 +230,9 @@ Next, click go to "Add a new SSH Key" and follow the instructions
  Go to Github and click on your profile then settings. locate "SSH and GP keys" click on it and
  follow the instructions to add your new SSH key. This will make your machine identifiable to github and avoid
  password prompt whenever you run a push command.
+
+
+##git push
+
+used to push changes from your machine to remote repositories. code - git push <remote label(origin)> <branch>
+
