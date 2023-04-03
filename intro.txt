@@ -254,3 +254,13 @@ You can push any branch to a remote repository without first switching to the br
 
 
 To check what is in the remote repo - git checkout <lable>/branch (origin/master)>
+
+There's a difference when you work with a repo you cloned from github and when you connect the repo you have on
+your machine to one on github and push changes there.
+You don't get to see if there's a difference between the branch on your machine and one on github
+git branch -r only shows you the branch you are connected to and not all the branches in your github repo
+
+
+To connect to a branch in your remote repo on your machine use - git switch <thebranch>
+git will start tracking changes between the branch on your machine and the one on the remote repo.
+NOTE: Only if it's a clone.
