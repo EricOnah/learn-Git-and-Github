@@ -252,3 +252,5 @@ used to push changes from your machine to remote repositories. code - git push <
 
 You can push any branch to a remote repository without first switching to the branch.
 
+
+To check what is in the remote repo - git checkout <lable>/branch (origin/master)>
