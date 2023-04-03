@@ -267,3 +267,8 @@ git will start tracking changes between the branch on your machine and the one o
 
 ##git fetch - used to download changes from remote repo to your local repo but not to your workspace. 
 The downloaded changes doesn't clash or merge with your local repo.
+
+git fetch <remote label> <branch> This will fetch a praticular branch from the remote and not the whole branch.
+
+To see changes by order contributors on the remote repo on your machine, you have perform a fetch request.
+These changes won't be tracked by git on you local machine until you fetch
