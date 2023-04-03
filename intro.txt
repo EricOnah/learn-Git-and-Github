@@ -96,4 +96,159 @@ To switch to a new branch - code: git switch <branch-name>
 
 ##changes committed to a branch can only be seen when on that branch.
 
+To rename a branch - git branch -m <new name>
+
 To create a new branch and switch to the new branch you add -c to switch. - code: git switch -c <branch-name>
+
+To delete a branch - git branch --delete <branch-name> or git branch -d(or D for forced delete) <branch>
+
+To restore a deleted branch - copy the SHA value of the deleted branch, use git checkout to switch to the SHA value
+as a detached head then use git switch -c <branch name> to create and switch to a new branch contain all the commits
+in the former branch.
+
+You can also use git reset SHA1 to go back to the commit of the deleted branch and use git switch -c <branch name> to
+create a new branch from the old branch.
+
+NOTE: Every commit before after SHA1 of the deleted branch will be lost.
+
+NOTE: If you cannot see the SHA value of the deleted branch, use git reflog to the SHA of the branch deleted and
+follow the process above.
+
+#Merge
+
+## You can use merge to merge different branches. It could be a fast forward merge, merge commit or merge conflict.
+Fast Forward Merge: Merging branches that have the same files but some changes in one branch is not in the other.
+These changes do not conflict with the file on the second branch so the merge is seamless.
+Merge Commit: Merging branches that have new files in one or both branches. The merge will just commit these files and
+Merge Conflict: Merging branches that the same files but different changes have been made to one or more of the files in the other branch
+each of the branch so there is conflict to resolve before the merge is completed.
+
+code: git merge <branch name>
+
+##git diff
+Used to see differences between between files in unstaged area and files in staged area.
+
+code: git diff
+
+git diff HEAD - used to see the changes in working directory compared to the last commit in the
+
+git diff --staged - shows the changes in staged area compared to the last commit
+
+git diff --cached - shows the changes in staged area compared to the last commit
+
+git diff shows the differences between the stagging area and working directory. The - is the stagging area
+while the + is the working directory. You can compare and see what is not stagged yet.
+
+git diff can be used on specific files ba adding the filename
+git diff tips.text
+this can used on all git diff commands (HEAD, --staged or --cached)
+
+git diff can be used to compare two branches. code: git diff branchname...2ndbranchname
+
+to compare specific files in both branches, add the filename after the ...2ndbranchname
+
+
+##git stash - used to save changes without staging or committing it so you can easily switch branches without
+losing your work.
+To recover the changes - git stash pop
+
+To apply the changes you stash and still have them in the stash to be used again you use - git stash apply
+
+When you have multiple stashes because you were using apply instead of pop, you can use - git stash list
+to see all the stashed list
+
+To apply any of the stash in the list you can use - git stash apply stash@{stash number}
+
+To clean up the stash you can use - git stash drop stash@{stash number}
+
+
+##git checkout - 
+
+You can use this to switch to any commit code git checkout <commit hash>
+
+This will remove every changes made after the commit you switch to. The changes are not lost. Once you switch back to 
+the branch that houses the changes, you have them back.(Re-attaching detached HEAD)
+
+You can also reference commits relative to the HEAD by using git checkout HEAD~<n> where is the location of the commit
+from the head. e.g git checkout HEAD~1 (meaning the first commit after HEAD)
+NOTE: HEAD is the commit or branch you're in. you can always check what HEAD is with git log
+
+To revert immediate changes to in you document you can use git checkout to a previous commit or the HEAD
+
+git checkout <commit hash> or git checkout HEAD~<position of commit from HEAD>
+
+When you checkout to an old commit, you can start a new branch or a new commit based on the old commit you are in.
+
+you can use git checkout -- <filename> for the above function as well. This will revert to the HEAD.
+ NOTE: This will only revert unstaged and uncommitted changes.
+
+ ##git restore 
+ performs similar function like the checkout above. git restore doesn't detach from the head into a commit.
+ It reverts the unstaged uncommitted changes without leaving the current HEAD.
+ To specify a particular commit, you use git restore --source <HEAD~n> or <commit hash> file(s)name
+ 
+ git restore --staged <filename> can be used to unstage a staged file.
+ To revert a staged file to previous commit, use git restore --staged <filename> to first unstage it
+ then use git restore <filename> to revert the changes.
+
+
+##git reset <commit hash> or <HEAD~n>
+This is used to delete a commit from the top. for you reset to a 3 commits ago, the most recent commits will be removed
+ This can not be used to delete a targeted commit like first commit only it will all commits that came after that
+ git reset --hard <commit hash> removes all unstaged changes in the working directory
+
+
+ ##git revert <commit hash> or <HEAD~n>
+ This will revert changes to a commit but won't delete the commit rather creats a new commit as the HEAD containing
+ the changes or correction made.
+ You can also use git revert to merge commits (i.e changes in different commits)
+
+##git clone <url> used to clone a repo from a remote source to your machine.
+Note: Run git clone in a folder where git has not been initialized because it initializes git.
+
+##Github
+
+Two ways to upload or add a new repo on the github
+
+When the project hasn't started: create an empty repo on github and clone it to your project directory and start
+working and uploading.
+
+When you have a repo on your machine: create a github repo and connect it to the repo o your local machine.
+
+origin - a conventional git remote name. it's just a name for a url and can be renamed
+
+A remote is a url that we make git aware of that we can upload files to from git. (A repo that is not on our machine
+which needs a url so we can link it to our machine and a label to identify it so we can remotely push things into it)
+
+To add a remote, git remote add <label(origin)> <repo url>
+
+To rename a remote - git remote rename <old name> <new name>
+
+To remove a remote - git remote remove <name>
+
+It is possible to have a multiple remote
+
+
+#SSH setup - this is used to set secure your activities between your machine and the server
+ To do this, visit https://docs.github.com/en/authentication/connecting-to-github-with-ssh
+ 
+check if you have SSH generated already - click on "checking for existing SSH keys" choose your machine and
+copy the code for your machine. code(windows) - ls -al ~/.ssh
+
+Once you confirm you do not have SSH key already, click on "Generate new SSH key"
+
+NOTE: When entering the paraphrase, it doesn't display as you type best to type in editor, copy and paste.
+
+Next, click go to "Add a new SSH Key" and follow the instructions
+
+ Go to Github and click on your profile then settings. locate "SSH and GP keys" click on it and
+ follow the instructions to add your new SSH key. This will make your machine identifiable to github and avoid
+ password prompt whenever you run a push command.
+
+
+##git push
+
+used to push changes from your machine to remote repositories. code - git push <remote label(origin)> <branch>
+
+You can push any branch to a remote repository without first switching to the branch.
+
