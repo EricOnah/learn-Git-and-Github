@@ -277,3 +277,11 @@ To track changes in your remote when you did not clone the remote repo, you can 
 git push --set-upstream origin master (This will connect the mast branch in your local machine to the master branch
 in your remote repo branch)
 This way git can track the changes.
+
+
+##git pull
+code - git pull <remote label> <branch>
+This will fetch and merge the changes from your remote branch to your working directory.
+Unlike push, pull goes to the branch where the pull request was made.
+
+NOTE: Best to initiate pull request from the branch that has he name with the branch in your remote
