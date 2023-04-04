@@ -272,3 +272,8 @@ git fetch <remote label> <branch> This will fetch a particular branch from the r
 
 To see changes by order contributors on the remote repo on your machine, you have perform a fetch request.
 These changes won't be tracked by git on you local machine until you fetch
+
+To track changes in your remote when you did not clone the remote repo, you can use
+git push --set-upstream origin master (This will connect the mast branch in your local machine to the master branch
+in your remote repo branch)
+This way git can track the changes.
