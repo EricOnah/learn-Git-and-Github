@@ -299,3 +299,18 @@ Based on markdown. You can use markdown to generate different things and have a 
 
 
 ##github gists used to share short codes and comments without having to go through the repo hassle.
+
+
+##pull request
+This used to inform memebers of your team of changes made to a branch our working on so the person that
+have authority to merge your changes to the main branch can review the changes and merge it.
+This is a github feature and not on git
+
+##fork
+This makes you a copy of a github repo on your account so can manipulate as you like.
+When you have made contribution or changes to the fork on your machine you can perform a pull request
+so the owner of the original can review and merge to the original repo if they find it good enough.
+This is a way to contribute to open source projects.
+
+When you fork a project it doesn't transfer to your local machine rather you will have to clone the
+project to be able to work on it on your local machine.
