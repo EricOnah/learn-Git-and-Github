@@ -302,7 +302,7 @@ Based on markdown. You can use markdown to generate different things and have a 
 
 
 ##pull request
-This used to inform memebers of your team of changes made to a branch our working on so the person that
+This used to inform members of your team of changes made to a branch our working on so the person that
 have authority to merge your changes to the main branch can review the changes and merge it.
 This is a github feature and not on git
 
@@ -314,3 +314,6 @@ This is a way to contribute to open source projects.
 
 When you fork a project it doesn't transfer to your local machine rather you will have to clone the
 project to be able to work on it on your local machine.
+
+If you want to keep track of changes in the original repo, you can create a new remote and connect to the
+original so you can pull from the original whenever.
