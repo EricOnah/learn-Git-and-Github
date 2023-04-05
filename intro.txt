@@ -292,3 +292,10 @@ Best practice is to use git fetch to peak if the difference between your working
 
 When you run a git pull without specifying the remote name and branch, git wil default to origin and the remote
 branch being tracked in the branch your in in your local machine 
+
+
+##README.md
+Based on markdown. You can use markdown to generate different things and have a beautiful README for your project
+
+
+##github gists used to share short codes and comments without having to go through the repo hassle.
