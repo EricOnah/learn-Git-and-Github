@@ -344,10 +344,14 @@ The above is known as semantic version
 To list all tags in a repo use git tag
 To search for specific versions use git tag -l "*<num>*" *something comes before or after e.g
 git tag -l "*beta*" This will list all beta versions.
+When you use - git tag The tag name is added to the last commit, your current HEAD.
+To add tag to an earlier commit - git tag <tag name> <commit hash>
 
 You can compare tags with diff git diff <tag version> <tag version>
 
 Two types of tags 
 lightweight tags - git tag <tagname> 
 Annotated tag - tag with more information like a commit message. git tag -a <tag name>
-You can the massage inline without waiting for editor to pop up - git tag -a <tag name> 
+You can the massage inline without waiting for editor to pop up - git tag -a <tag name> -m "tag detail"
+You can also tag a previous commit with Annotated tag - git tag -a <tag name> <commit hash>
+To show tag detail - git show <tag name>
