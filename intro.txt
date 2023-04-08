@@ -123,6 +123,7 @@ Merge Commit: Merging branches that have new files in one or both branches. The 
 Merge Conflict: Merging branches that the same files but different changes have been made to one or more of the files in the other branch
 each of the branch so there is conflict to resolve before the merge is completed.
 
+
 code: git merge <branch name>
 
 ##git diff
@@ -317,3 +318,23 @@ project to be able to work on it on your local machine.
 
 If you want to keep track of changes in the original repo, you can create a new remote and connect to the
 original so you can pull from the original whenever.
+
+##git rebase
+Used to re-arrange history. When you have a lot of merging resulting in unorganized history you can 
+use git rebase to have a more linear history. When using merge commit, you commits will have two or more parents.
+git rebase will re-arrange the commits in a way that the commit in your master branch and the branched you rebased
+will have different parents. Those on master will come first followed by those on your rebased branched.
+the commit hash for the branch you rebased changes while that of the master or any branch you merged it with
+remains.
+
+When there is a git rebase conflict, resolve the merge conflict, add the new changes git add <filename>
+and continue the rebase operation with git rebase --continue
+
+git rebase -i HEAD~<commit position> used to make changes to commits in a branch.
+i - interactive mode. Here you can decide to
+rebase pick - No changes to commit
+rebase reword - used to change the commit message in a branch
+rebase edit - used to amend changes to the commit/or reword the commit message
+rebase drop - used to delete commit
+rebase fixup - used to join a commit to the next commit after it
+rebase squash - used to combines commits into one
