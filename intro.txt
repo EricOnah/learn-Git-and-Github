@@ -338,3 +338,16 @@ rebase edit - used to amend changes to the commit/or reword the commit message
 rebase drop - used to delete commit
 rebase fixup - used to join a commit to the next commit after it
 rebase squash - used to combines commits into one
+
+##git tag - used to mark version releases. firs number is major release, second is minor release, third is patch.
+The above is known as semantic version
+To list all tags in a repo use git tag
+To search for specific versions use git tag -l "*<num>*" *something comes before or after e.g
+git tag -l "*beta*" This will list all beta versions.
+
+You can compare tags with diff git diff <tag version> <tag version>
+
+Two types of tags 
+lightweight tags - git tag <tagname> 
+Annotated tag - tag with more information like a commit message. git tag -a <tag name>
+You can the massage inline without waiting for editor to pop up - git tag -a <tag name> 
