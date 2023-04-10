@@ -356,4 +356,13 @@ You can the massage inline without waiting for editor to pop up - git tag -a <ta
 You can also tag a previous commit with Annotated tag - git tag -a <tag name> <commit hash>
 To show tag detail - git show <tag name>
 
-Tag names are unique. To move a tag to another commit you have to force it. git tag -f <tag name>
+Tag names are unique. To move a tag to another commit you have to force it. git tag <tag name> <commit hash> -f
+NOTE: You can add more than one tag to your commit.
+
+To delete a tag - git tag -d <tag name> .
+Tags are not included by default when you push but you can them to a remote by specifying the remote
+--tags. git push <remote name> --tags . This will push all tags to the remote
+To push one tag - git push <remote name> <tagname>
+
+Local config file you can set prefences like color, text size etc
+check - https://git-scm.com/docs/git-config
