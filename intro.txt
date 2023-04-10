@@ -366,3 +366,32 @@ To push one tag - git push <remote name> <tagname>
 
 Local config file you can set prefences like color, text size etc
 check - https://git-scm.com/docs/git-config
+
+Storing data with Git:
+git hash-object <filename> will return the hash value of the file.
+I you want to store a text - echo <text> | git hash-object --stdin
+
+To have git save the file or text that you hashed you add the -w
+git has-object <filename> -w 
+echo <text> | git hash-object --stdin -w
+The information saved in a hash can be retrieved using the same hash
+git cat-file <hash> -p
+
+NOTE: Even if you delete the file, the information saved in the hash will still be retrieved.
+You can pass the content of a hash into file using - git cat-file -p <hash> >  <filename>
+
+##blob - binary large objects used by git to store file content and not the file or file name.
+##tree - stores the content of a directory. Trees can point to a blob or another tree
+
+##alias - used to set shortcut to git commands. you can do this in the global config file if you want.
+[alias]
+        s = status;
+
+with this, whenever you run git s it will perform the same function as git status.
+To do it in the command line - git config --global alias.<alias name> <git command>
+
+
+git alias link
+https://www.durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples/
+https://gist.github.com/mwhite/6887990
+https://github.com/GitAlias/gitalias
