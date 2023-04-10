@@ -355,3 +355,5 @@ Annotated tag - tag with more information like a commit message. git tag -a <tag
 You can the massage inline without waiting for editor to pop up - git tag -a <tag name> -m "tag detail"
 You can also tag a previous commit with Annotated tag - git tag -a <tag name> <commit hash>
 To show tag detail - git show <tag name>
+
+Tag names are unique. To move a tag to another commit you have to force it. git tag -f <tag name>
