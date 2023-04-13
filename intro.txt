@@ -262,9 +262,6 @@ You don't get to see if there's a difference between the branch on your machine 
 git branch -r only shows you the branch you are connected to and not all the branches in your github repo
 Once you perform a fetch request, all the branches in the repo will be accessible with git branch -r
 
-To connect to a branch in your remote repo on your machine use - git switch <thebranch>
-git will start tracking changes between the branch on your machine and the one on the remote repo.
-
 
 ##git fetch - used to download changes from remote repo to your local repo but not to your workspace. 
 The downloaded changes doesn't clash or merge with your local repo.
