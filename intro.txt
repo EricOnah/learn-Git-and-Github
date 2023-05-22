@@ -1,394 +1,407 @@
-# This is a git crash course for self
+# This is a Git crash course for self
 
-git init: to initialize a repository. This will make Git track the activities in that folder. Once the folder is created
-initialized, you should not run this command again in the child folders.
+git init: To initialize a repository. This will make Git track the activities in that folder. Once the folder is created and initialized, you should not run this command again in the child folders.
 
-git status: to check the status of a repository or if there's a repo at all.
+git status: To check the status of a repository or if there's a repository at all.
 
-to remove git repo from the directory, delete the .git directory.
+To remove a Git repository from the directory, delete the .git directory.
 
-code: ls -a #to see hidden files and directories
-        rm -rf .git #to remove the git directory
+Code:
+ls -a # to see hidden files and directories
+rm -rf .git # to remove the Git directory
 
-#Once done, git no longer tracks the folder.
+Once done, Git no longer tracks the folder.
 
-#Best practice will be to only initialize project directories individually.
+Best practice will be to only initialize project directories individually.
 
+git commit: A checkpoint in time. As you work, you can commit different changes to your file or project and have it saved on GitHub with a description of the changes.
 
+Three things here:
+1. Working directory: Folder where your work is saved.
+2. Staging area: Where the selected files you want to commit are kept before commit. Code: git add
+   You can also use code: git stage filename  # to add files to the staging area.
+   To remove a file or files from the staging area, use code: git rm --cached filename or git restore --staged filename.
+   If there is a change in the staged file and the one in the working directory, the removed command will not be executed.
+   Two things you can do in this case:
+   - Stage the file again and run the git rm command again.
+   - Force remove the file by running the git rm command with -f. Code: rm --cached -f "filename"
 
-git commit: check point in time. As you work can commit different changes to your file or project and have it saved 
-on github with a description of the changes.
+3. Repository: The .git folder that was created when you initialized Git. This is where the files in the staging area get added once you commit. Code: git commit
 
-3 things here:
-Working directory: Folder where you work is saved on
+Commit message: The commit message carries information about the files or changes that you made in the file that is about to be committed. Code: git commit -m "#commit message"
 
-Staging area: Where the selected files you want to commit are kept before commit. code: git add
-you can also use code: git stage filename  #to add files in the staging area.
-to remove file or files from the staging area - code: git rm --cached filename. or git restore --staged filename.
-If there is a change in the staged file and the one in the working directory, the removed command will not be executed.
-Two things you can do in this case:
-- Stage the file again and and run the git rm command again
-- force remove the file by running git rm command with -f. Code: rm --cached -f "filename"
+## More git add and git commit commands
 
-Repository: the .git folder that was created when you initialized git. This is where the files in the staging area area
-gets added once you commit. code: git commit
+git add .  ## Stage all changes in the folder at once
+git add <path>: Use git add to stage a specific file or directory.
+git add -p: Use interactive mode to choose which hunks of changes to stage.
 
-commit message: commit message carries information about the files or changes that you made in the file that is about to be
-to be committed. code: git commit -m "#commit message"
+## Keep each commit focused on a single change (Atomic Commit)
+## To get more options, visit - https://git-scm.com/docs
 
-##more git add and git commit commands
+## GIT log
+Displays information about the commit. Code: git log
 
+To have it display in one line - Code: git log --oneline
 
-git add . ##stage all changes in the folder at once
-git add <path> : Use git add to stage a specific file or directory.
-git add -p : Use an interactive mode to choose which hunks of changes to stage.
+## To get more options, visit - https://git-scm.com/docs
 
+## Amending mistakes in commit
 
+If you omitted a file or had a typo in the commit message, you can amend it.
+Stage the file you forgot to add and run the code below:
+Code: git commit --amend
+In the file that opens in your code editor, you can edit the commit message, check if the new file has been added, then close the file.
+## This is only used to amend the last commit and not 2 or 3 commits earlier.
 
-##keep each commit focused on a single change (Atomic Commit)
-##to get more options visit - https://git-scm.com/docs
+To amend earlier commits, use git rebase. Code: git rebase -i HEAD~n (number of commits). If n is 3, it will display the last 3 commits.
 
+## GIT IGNORE HEAD
 
-##GIT log
-displays information about the commit. code: git log
+To make Git not track every file in your project, you can use the .gitignore file to hide these files and folders from Git.
 
-to have it display in one line - code: git log --oneline
+You can add file extensions, e.g., .txt, or folder names like "ignore_this/".
 
-##to get more options visit - https://git-scm.com/docs
+For files to ignore while working on a project, visit: https://www.toptal.com/developers/gitignore/
 
 
 
-##Amending mistakes in commit
 
-If you omitted a file or had typo in commit message, you can amend it.
-Stage in the file you forgot to add and run the code below
-code: git commit --amend
-In the file that will open in your code editor, you can edit the commit message, check if the new file has been 
-added then close the file.
-##this is only used to amend the last commit not 2 or 3 commits earlier
+Proofread:
 
-To amend earlier commits use git rebase. code: git rebase -i HEAD~n (number of commits) if n is 3, it will display the
-last 3 commits.
+## Branches (Alternative Timelines)
+Branches in Git allow you to work on a project in a different timeline, where the main branch or parent branch is not affected by the changes you make in the new branch.
 
+## HEAD = Current Branch
+To determine the current branches, use the command:
+```
+git branch
+```
+If there are multiple branches, the branch name with an asterisk (*) indicates the branch you are currently on (HEAD).
 
-##GIT IGNORE HEAD
+To create a new branch without switching to it, use:
+```
+git branch <branch-name>
+```
 
-To make git not track every file in your project you can use the .gitignore file to hide these files and folders
-from git.
+To switch to an existing branch, use:
+```
+git switch <branch-name>
+```
 
-you can add file extension e.g .txt or folder ignore_this/
+Changes committed to a branch can only be seen when you are on that branch.
 
-for files to ignore while working on a project visit: https://www.toptal.com/developers/gitignore/
+To rename a branch, use:
+```
+git branch -m <new-name>
+```
 
+To create a new branch and switch to it in a single command, use:
+```
+git switch -c <branch-name>
+```
 
+To delete a branch, use either of the following commands:
+```
+git branch --delete <branch-name>
+git branch -d/-D <branch-name> (forced delete)
+```
 
-##Branches (Alternative timelines) - Alternative timeline where you can work on the project but in a different timeline 
-that the main branch or the parent branch is not affected by the changes you make in the new branch.
+To restore a deleted branch:
+1. Copy the SHA value of the deleted branch.
+2. Use `git checkout` to switch to the detached HEAD state using the SHA value.
+3. Create and switch to a new branch containing all the commits from the former branch using `git switch -c <branch-name>`.
 
-##HEAD = current branch
+Alternatively, you can use `git reset <SHA1>` to go back to the commit of the deleted branch and then create a new branch from the old branch using `git switch -c <branch-name>`.
 
-to see current branches - code: git branch
-if there is more than one branch, the branch name with * is the branch you are on.
- 
-To create a new branch - code: git branch <branch-name> ##this doesn't switch you to the branch just creates.
+Note: Every commit made after the SHA1 of the deleted branch will be lost. If you cannot see the SHA value of the deleted branch, use `git reflog` to find the SHA of the deleted branch and follow the process mentioned above.
 
-To switch to a new branch - code: git switch <branch-name>
+# Merge
+You can use the `git merge` command to merge different branches. There are three types of merges: fast-forward merge, merge commit, and merge conflict.
 
-##changes committed to a branch can only be seen when on that branch.
+Fast Forward Merge: This type of merge occurs when merging branches that have the same files, but some changes in one branch are not in the other. These changes do not conflict with the files in the second branch, resulting in a seamless merge.
 
-To rename a branch - git branch -m <new name>
+Merge Commit: When merging branches that have new files in one or both branches, the merge will simply commit these new files.
 
-To create a new branch and switch to the new branch you add -c to switch. - code: git switch -c <branch-name>
+Merge Conflict: This type of merge occurs when merging branches that have the same files but different changes have been made to one or more of the files in each branch. In such cases, conflicts need to be resolved before the merge can be completed.
 
-To delete a branch - git branch --delete <branch-name> or git branch -d(or D for forced delete) <branch>
+To merge branches, use the command:
+```
+git merge <branch-name>
+```
 
-To restore a deleted branch - copy the SHA value of the deleted branch, use git checkout to switch to the SHA value
-as a detached head then use git switch -c <branch name> to create and switch to a new branch contain all the commits
-in the former branch.
+## git diff
+The `git diff` command is used to see differences between files in the unstaged area and the files in the staged area.
 
-You can also use git reset SHA1 to go back to the commit of the deleted branch and use git switch -c <branch name> to
-create a new branch from the old branch.
+To see the changes in the working directory compared to the last commit, use:
+```
+git diff HEAD
+```
 
-NOTE: Every commit before after SHA1 of the deleted branch will be lost.
+To see the changes in the staged area compared to the last commit, use:
+```
+git diff --staged/--cached
+```
 
-NOTE: If you cannot see the SHA value of the deleted branch, use git reflog to the SHA of the branch deleted and
-follow the process above.
+The `git diff` command shows the differences between the staging area and the working directory. The `-` indicates the staging area, while the `+` indicates the working directory. This allows you to compare and see what is not staged yet.
 
-#Merge
+You can use `git diff` on specific files by adding the filename:
+```
+git diff <filename>
+```
+This can be used with all `git diff` commands (HEAD, --staged, or --cached).
 
-## You can use merge to merge different branches. It could be a fast forward merge, merge commit or merge conflict.
-Fast Forward Merge: Merging branches that have the same files but some changes in one branch is not in the other.
-These changes do not conflict with the file on the second branch so the merge is seamless.
-Merge Commit: Merging branches that have new files in one or both branches. The merge will just commit these files and
-Merge Conflict: Merging branches that the same files but different changes have been made to one or more of the files in the other branch
-each of the branch so there is conflict to resolve before the merge is completed.
+To compare differences between two branches, use:
+```
+git diff <branch-name>...<second-branch-name>
+```
 
+to compare the differnce between specific files in both branches, add the filename after the ...2ndbranchname
+```
+git diff <branch-name>...<second-branch-name> <filename>
+```
 
-code: git merge <branch name>
 
-##git diff
-Used to see differences between between files in unstaged area and files in staged area.
 
-code: git diff
 
-git diff HEAD - used to see the changes in working directory compared to the last commit in the
 
-git diff --staged - shows the changes in staged area compared to the last commit
+## git stash
+The `git stash` command is used to save changes without staging or committing them so that you can easily switch branches without losing your work.
 
-git diff --cached - shows the changes in staged area compared to the last commit
+To recover the stashed changes, use `git stash pop`.
 
-git diff shows the differences between the stagging area and working directory. The - is the stagging area
-while the + is the working directory. You can compare and see what is not stagged yet.
+To apply the stashed changes and keep them in the stash for future use, use `git stash apply`.
 
-git diff can be used on specific files ba adding the filename
-git diff tips.text
-this can used on all git diff commands (HEAD, --staged or --cached)
+If you have multiple stashes because you used `apply` instead of `pop`, you can use `git stash list` to see the list of stashes.
 
-git diff can be used to compare two branches. code: git diff branchname...2ndbranchname
+To apply a specific stash from the list, use `git stash apply stash@{stash-number}`.
 
-to compare specific files in both branches, add the filename after the ...2ndbranchname
+To clean up a specific stash, use `git stash drop stash@{stash-number}`.
 
 
-##git stash - used to save changes without staging or committing it so you can easily switch branches without
-losing your work.
-To recover the changes - git stash pop
+## git checkout
+The `git checkout` command is used to switch to a specific commit or branch.
 
-To apply the changes you stash and still have them in the stash to be used again you use - git stash apply
+To switch to a specific commit, use `git checkout <commit-hash>`. This will remove all changes made after the commit you switch to. The changes are not lost, and once you switch back to the branch that contains the changes, you will have them again (re-attaching detached HEAD).
 
-When you have multiple stashes because you were using apply instead of pop, you can use - git stash list
-to see all the stashed list
+You can also reference commits relative to the HEAD using `git checkout HEAD~<n>`, where `<n>` is the position of the commit relative to the HEAD. For example, `git checkout HEAD~1` refers to the first commit after HEAD.
 
-To apply any of the stash in the list you can use - git stash apply stash@{stash number}
+Note: HEAD represents the current commit or branch, and you can always check what HEAD is with `git log`.
 
-To clean up the stash you can use - git stash drop stash@{stash number}
+To revert immediate changes in your document, you can use `git checkout` to switch to a previous commit or the HEAD.
 
+For example, `git checkout <commit-hash>` or `git checkout HEAD~<position-of-commit-from-HEAD>`.
 
-##git checkout - 
+When you check out an old commit, you can start a new branch or make a new commit based on that old commit.
 
-You can use this to switch to any commit code git checkout <commit hash>
+You can also use `git checkout -- <filename>` to revert changes to the HEAD. Note that this will only revert unstaged and uncommitted changes.
 
-This will remove every changes made after the commit you switch to. The changes are not lost. Once you switch back to 
-the branch that houses the changes, you have them back.(Re-attaching detached HEAD)
 
-You can also reference commits relative to the HEAD by using git checkout HEAD~<n> where is the location of the commit
-from the head. e.g git checkout HEAD~1 (meaning the first commit after HEAD)
-NOTE: HEAD is the commit or branch you're in. you can always check what HEAD is with git log
+## git restore
+The `git restore` command performs similar functions to `git checkout` but does not detach from the HEAD into a commit. It reverts unstaged and uncommitted changes without leaving the current HEAD.
 
-To revert immediate changes to in you document you can use git checkout to a previous commit or the HEAD
+To specify a particular commit, use `git restore --source <HEAD~n> or <commit-hash> <filename>`.
 
-git checkout <commit hash> or git checkout HEAD~<position of commit from HEAD>
+You can use `git restore --staged <filename>` to unstage a staged file. To revert a staged file to a previous commit, first unstage it using `git restore --staged <filename>`, then use `git restore <filename>` to revert the changes.
 
-When you checkout to an old commit, you can start a new branch or a new commit based on the old commit you are in.
 
-you can use git checkout -- <filename> for the above function as well. This will revert to the HEAD.
- NOTE: This will only revert unstaged and uncommitted changes.
+## git reset
+The `git reset` command is used to delete a commit from the top. If you reset to a commit that is three commits ago, the most recent commits will be removed. However, it cannot be used to delete a specific targeted commit; it will remove all commits that came after that.
 
- ##git restore 
- performs similar function like the checkout above. git restore doesn't detach from the head into a commit.
- It reverts the unstaged uncommitted changes without leaving the current HEAD.
- To specify a particular commit, you use git restore --source <HEAD~n> or <commit hash> file(s)name
- 
- git restore --staged <filename> can be used to unstage a staged file.
- To revert a staged file to previous commit, use git restore --staged <filename> to first unstage it
- then use git restore <filename> to revert the changes.
+Using `git reset --hard <commit-hash>` removes all unstaged changes in the working directory.
 
 
-##git reset <commit hash> or <HEAD~n>
-This is used to delete a commit from the top. for you reset to a 3 commits ago, the most recent commits will be removed
- This can not be used to delete a targeted commit like first commit only it will all commits that came after that
- git reset --hard <commit hash> removes all unstaged changes in the working directory
+## git revert
+The `git revert` command is used to revert changes made in a commit without deleting the commit itself. It creates a new commit as the HEAD, containing the changes or corrections made. You can also use `git revert` to merge commits, i.e., apply changes from different commits.
 
 
- ##git revert <commit hash> or <HEAD~n>
- This will revert changes to a commit but won't delete the commit rather creats a new commit as the HEAD containing
- the changes or correction made.
- You can also use git revert to merge commits (i.e changes in different commits)
+## git clone
+The `git clone <url>` command is used to clone a repository from a remote source to your machine.
 
-##git clone <url> used to clone a repo from a remote source to your machine.
-Note: Run git clone in a folder where git has not been initialized because it initializes git.
+Note: Run `git clone` in a folder where Git has not been initialized because it initializes Git in the specified folder.
 
-##Github
 
-Two ways to upload or add a new repo on the github
 
-When the project hasn't started: create an empty repo on github and clone it to your project directory and start
-working and uploading.
 
-When you have a repo on your machine: create a github repo and connect it to the repo o your local machine.
 
-origin - a conventional git remote name. it's just a name for a url and can be renamed
+Proofread:
 
-A remote is a url that we make git aware of that we can upload files to from git. (A repo that is not on our machine
-which needs a url so we can link it to our machine and a label to identify it so we can remotely push things into it)
+## GitHub
 
-To add a remote, git remote add <label(origin)> <repo url>
+There are two ways to upload or add a new repository on GitHub:
 
-To rename a remote - git remote rename <old name> <new name>
+1. When the project hasn't started: Create an empty repository on GitHub and clone it to your project directory. Start working and uploading from there.
 
-To remove a remote - git remote remove <name>
+2. When you already have a repository on your machine: Create a GitHub repository and connect it to the repository on your local machine.
 
-It is possible to have a multiple remote
+"origin" is a conventional Git remote name. It's just a name for a URL and can be renamed.
 
+A remote is a URL that we make Git aware of so that we can upload files from Git. It refers to a repository that is not on our machine. We need a URL to link it to our machine and a label to identify it, enabling us to remotely push things into it.
 
-#SSH setup - this is used to set secure your activities between your machine and the server
- To do this, visit https://docs.github.com/en/authentication/connecting-to-github-with-ssh
- 
-check if you have SSH generated already - click on "checking for existing SSH keys" choose your machine and
-copy the code for your machine. code(windows) - ls -al ~/.ssh
+To add a remote, use `git remote add <label(origin)> <repo-url>`.
 
-Once you confirm you do not have SSH key already, click on "Generate new SSH key"
+To rename a remote, use `git remote rename <old-name> <new-name>`.
 
-NOTE: When entering the paraphrase, it doesn't display as you type best to type in editor, copy and paste.
+To remove a remote, use `git remote remove <name>`.
 
-Next, click go to "Add a new SSH Key" and follow the instructions
+It is possible to have multiple remotes.
 
- Go to Github and click on your profile then settings. locate "SSH and GP keys" click on it and
- follow the instructions to add your new SSH key. This will make your machine identifiable to github and avoid
- password prompt whenever you run a push command.
 
+# SSH setup - This is used to secure your activities between your machine and the server.
 
-##git push
+To set up SSH, visit https://docs.github.com/en/authentication/connecting-to-github-with-ssh.
 
-used to push changes from your machine to remote repositories. code - git push <remote label(origin)> <branch>
+Check if you have already generated an SSH key by clicking on "checking for existing SSH keys," selecting your machine, and copying the code for your machine. For example, on Windows, the code is `ls -al ~/.ssh`.
+
+If you don't have an SSH key already, click on "Generate new SSH key."
+
+Note: When entering the passphrase, it doesn't display as you type. It is best to type it in an editor and then copy and paste it.
+
+Next, go to "Add a new SSH Key" and follow the instructions.
+
+Go to GitHub, click on your profile, then go to settings. Locate "SSH and GPG keys," click on it, and follow the instructions to add your new SSH key. This will make your machine identifiable to GitHub and avoid password prompts whenever you run a push command.
+
+
+## git push
+
+The `git push` command is used to push changes from your machine to remote repositories. The syntax is `git push <remote-label(origin)> <branch>`.
 
 You can push any branch to a remote repository without first switching to the branch.
 
+To check what is in the remote repository, use `git checkout <label/branch> (origin/master)`.
 
-To check what is in the remote repo - git checkout <lable>/branch (origin/master)>
-
-There's a difference when you work with a repo you cloned from github and when you connect the repo you have on
-your machine to one on github and push changes there.
-You don't get to see if there's a difference between the branch on your machine and one on github
-git branch -r only shows you the branch you are connected to and not all the branches in your github repo
-Once you perform a fetch request, all the branches in the repo will be accessible with git branch -r
+There's a difference when you work with a repository you cloned from GitHub and when you connect the repository you have on your machine to one on GitHub and push changes there. When you connect to a repository on GitHub, you don't get to see if there's a difference between the branch on your machine and the one on GitHub. `git branch -r` only shows you the branch you are connected to and not all the branches in your GitHub repository. Once you perform a fetch request, all the branches in the repository will be accessible with `git branch -r`.
 
 
-##git fetch - used to download changes from remote repo to your local repo but not to your workspace. 
-The downloaded changes doesn't clash or merge with your local repo.
+## git fetch
 
-git fetch <remote label> <branch> This will fetch a particular branch from the remote and not the whole branch.
+The `git fetch` command is used to download changes from a remote repository to your local repository, but not to your workspace. The downloaded changes don't clash or merge with your local repository.
 
-To see changes by order contributors on the remote repo on your machine, you have perform a fetch request.
-These changes won't be tracked by git on you local machine until you fetch
+To fetch a particular branch from the remote repository and not the whole branch, use `git fetch <remote-label> <branch>`.
 
-To track changes in your remote when you did not clone the remote repo, you can use
-git push --set-upstream origin master (This will connect the mast branch in your local machine to the master branch
+To see changes by order of contributors on the remote repository on your machine, you need to perform a fetch request. These changes won't be tracked by Git on your local machine until you fetch them.
+
+To track changes in your remote repository when you did not clone the remote repository, you can use `git push --set-upstream origin master`. This will connect the master branch in your local machine to the master branch
 in your remote repo branch)
 This way git can track the changes.
 
 
-##git pull
-code - git pull <remote label> <branch>
-This will fetch and merge the changes from your remote branch to your working directory.
-Unlike push, pull goes to the branch where the pull request was made.
-
-NOTE: Best to initiate pull request from the branch that has he name with the branch in your remote
-
-##pull merge conflict 
-Best practice is to use git fetch to peak if the difference between your working directory
 
 
-When you run a git pull without specifying the remote name and branch, git wil default to origin and the remote
-branch being tracked in the branch your in in your local machine 
+Proofread:
+
+## git pull
+
+Code: `git pull <remote-label> <branch>`
+
+This command fetches and merges the changes from your remote branch to your working directory. Unlike `git push`, `git pull` goes to the branch where the pull request was made.
+
+NOTE: It's best to initiate a pull request from the branch that has the same name as the branch in your remote repository.
+
+## Pull merge conflict
+
+Best practice is to use `git fetch` to check if there are differences between your working directory and the remote repository before running a `git pull` command.
+
+When you run `git pull` without specifying the remote name and branch, Git will default to "origin" and the remote branch being tracked in the branch you are currently in on your local machine.
 
 
-##README.md
-Based on markdown. You can use markdown to generate different things and have a beautiful README for your project
+## README.md
+
+Based on Markdown, you can use Markdown syntax to generate different elements and create a beautiful README for your project.
 
 
-##github gists used to share short codes and comments without having to go through the repo hassle.
+## GitHub Gists
+
+GitHub Gists are used to share short codes and comments without having to go through the hassle of creating a repository.
 
 
-##pull request
-This used to inform members of your team of changes made to a branch our working on so the person that
-have authority to merge your changes to the main branch can review the changes and merge it.
-This is a github feature and not on git
+## Pull request
 
-##fork
-This makes you a copy of a github repo on your account so can manipulate as you like.
-When you have made contribution or changes to the fork on your machine you can perform a pull request
-so the owner of the original can review and merge to the original repo if they find it good enough.
-This is a way to contribute to open source projects.
+This feature is used to inform team members about changes made to a branch you are working on. The person with the authority to merge changes into the main branch can review the changes and merge them. This is a GitHub feature and not a feature of Git itself.
 
-When you fork a project it doesn't transfer to your local machine rather you will have to clone the
-project to be able to work on it on your local machine.
 
-If you want to keep track of changes in the original repo, you can create a new remote and connect to the
-original so you can pull from the original whenever.
+## Fork
 
-##git rebase
-Used to re-arrange history. When you have a lot of merging resulting in unorganized history you can 
-use git rebase to have a more linear history. When using merge commit, you commits will have two or more parents.
-git rebase will re-arrange the commits in a way that the commit in your master branch and the branched you rebased
-will have different parents. Those on master will come first followed by those on your rebased branched.
-the commit hash for the branch you rebased changes while that of the master or any branch you merged it with
-remains.
+Forking a GitHub repository creates a copy of the repository on your account, allowing you to manipulate it as you like. After making contributions or changes to the forked repository on your machine, you can submit a pull request so that the owner of the original repository can review and merge your changes if they find them suitable. Forking is a way to contribute to open-source projects.
 
-When there is a git rebase conflict, resolve the merge conflict, add the new changes git add <filename>
-and continue the rebase operation with git rebase --continue
+When you fork a project, it doesn't transfer to your local machine. You will have to clone the forked project to work on it locally.
 
-git rebase -i HEAD~<commit position> used to make changes to commits in a branch.
-i - interactive mode. Here you can decide to
-rebase pick - No changes to commit
-rebase reword - used to change the commit message in a branch
-rebase edit - used to amend changes to the commit/or reword the commit message
-rebase drop - used to delete commit
-rebase fixup - used to join a commit to the next commit after it
-rebase squash - used to combines commits into one
+If you want to keep track of changes in the original repository, you can create a new remote and connect it to the original repository, allowing you to pull changes from the original repository whenever needed.
 
-##git tag - used to mark version releases. firs number is major release, second is minor release, third is patch.
-The above is known as semantic version
-To list all tags in a repo use git tag
-To search for specific versions use git tag -l "*<num>*" *something comes before or after e.g
-git tag -l "*beta*" This will list all beta versions.
-When you use - git tag The tag name is added to the last commit, your current HEAD.
-To add tag to an earlier commit - git tag <tag name> <commit hash>
 
-You can compare tags with diff git diff <tag version> <tag version>
+## Git rebase
 
-Two types of tags 
-lightweight tags - git tag <tagname> 
-Annotated tag - tag with more information like a commit message. git tag -a <tag name>
-You can the massage inline without waiting for editor to pop up - git tag -a <tag name> -m "tag detail"
-You can also tag a previous commit with Annotated tag - git tag -a <tag name> <commit hash>
-To show tag detail - git show <tag name>
+`git rebase` is used to rearrange commit history. When there are multiple merges resulting in an unorganized history, `git rebase` can be used to create a more linear history. When using merge commits, your commits will have two or more parents. `git rebase` rearranges the commits so that the commits on your master branch and the branch you are rebasing will have different parents. The commits on the master branch come first, followed by the commits from your rebased branch. The commit hash for the rebased branch changes, while the commit hash for the master branch or any other branch it was merged with remains the same.
 
-Tag names are unique. To move a tag to another commit you have to force it. git tag <tag name> <commit hash> -f
-NOTE: You can add more than one tag to your commit.
+In case of a merge conflict during a rebase, resolve the conflict, add the changes using `git add <filename>`, and continue the rebase operation with `git rebase --continue`.
 
-To delete a tag - git tag -d <tag name> .
-Tags are not included by default when you push but you can them to a remote by specifying the remote
---tags. git push <remote name> --tags . This will push all tags to the remote
-To push one tag - git push <remote name> <tagname>
+`git rebase -i HEAD~<commit position>` is used to make changes to commits in a branch. In interactive mode, you can choose to:
 
-Local config file you can set prefences like color, text size etc
-check - https://git-scm.com/docs/git-config
+- `pick`: Keep the commit as is.
+- `reword`: Change the commit message.
+- `edit`: Amend changes to the commit or reword the commit message.
+- `drop`: Delete the commit.
+- `fixup`: Join a commit with the next commit after it.
+- `squash`: Combine multiple commits into one.
 
-Storing data with Git:
-git hash-object <filename> will return the hash value of the file.
-I you want to store a text - echo <text> | git hash-object --stdin
+## Git tag
 
-To have git save the file or text that you hashed you add the -w
-git has-object <filename> -w 
-echo <text> | git hash-object --stdin -w
-The information saved in a hash can be retrieved using the same hash
-git cat-file <hash> -p
+`git tag` is used to mark version releases. The first number represents the major release, the second represents the minor release, and the third represents the patch. This is known as semantic versioning.
 
-NOTE: Even if you delete the file, the information saved in the hash will still be retrieved.
-You can pass the content of a hash into file using - git cat-file -p <hash> >  <filename>
+To list all tags in a repository, use `git tag`. 
+To search for specific versions, you can use the `git tag -l "*<num>*"` command, where `<num>` is a pattern representing the version you're looking for. For example, `git tag -l "*beta*"` will list all tags that contain "beta" in their names.
 
-##blob - binary large objects used by git to store file content and not the file or file name.
-##tree - stores the content of a directory. Trees can point to a blob or another tree
+When you use `git tag` without any additional arguments, the tag name is added to the last commit, which represents your current HEAD.
 
-##alias - used to set shortcut to git commands. you can do this in the global config file if you want.
+To add a tag to an earlier commit, you can use the command `git tag <tag name> <commit hash>`. Replace `<tag name>` with the desired name for the tag and `<commit hash>` with the hash of the commit you want to tag.
+
+You can compare tags using the `git diff` command. To compare two tag versions, use the command `git diff <tag version> <tag version>`. Replace `<tag version>` with the names of the tags you want to compare. This command will show the differences between the two tagged versions.
+
+Continuation:
+
+There are two types of tags in Git:
+
+1. Lightweight tags: You can create a lightweight tag using the command `git tag <tagname>`. It is simply a pointer to a specific commit.
+
+2. Annotated tags: An annotated tag contains more information, such as a tag message similar to a commit message. To create an annotated tag, you can use the command `git tag -a <tag name>`. This will open an editor where you can provide the tag message. Alternatively, you can add the message inline without opening an editor using the `-m` option: `git tag -a <tag name> -m "tag detail"`. You can also tag a previous commit with an annotated tag by specifying the commit hash: `git tag -a <tag name> <commit hash>`.
+
+To show the details of a tag, you can use the `git show` command followed by the tag name: `git show <tag name>`.
+
+Tag names are unique within a repository. If you want to move a tag to another commit, you need to force it using the `-f` option: `git tag <tag name> <commit hash> -f`. Note that you can add more than one tag to a commit.
+
+To delete a tag, you can use the command `git tag -d <tag name>`. By default, tags are not included when you push changes. However, you can push all tags to a remote repository by specifying `--tags`: `git push <remote name> --tags`. To push a specific tag, you can use `git push <remote name> <tagname>`.
+
+You can configure preferences for Git using a local config file. To learn more about the available options, you can refer to the official Git documentation on [git-config](https://git-scm.com/docs/git-config).
+
+Git provides a way to store data using hashes. You can obtain the hash value of a file using `git hash-object <filename>`. If you want to store a text directly, you can use `echo <text> | git hash-object --stdin`.
+
+To save the file or text that you hashed, you can add the `-w` option: `git hash-object <filename> -w` or `echo <text> | git hash-object --stdin -w`. The information stored with a hash can be retrieved using the same hash by using the command `git cat-file <hash> -p`.
+
+Even if you delete the file, the information saved with the hash will still be retrievable. You can pass the content of a hash into a file using `git cat-file -p <hash> > <filename>`.
+
+Git uses two fundamental data structures for storing data:
+
+1. Blob: A binary large object that stores the content of a file, without considering the file or file name.
+
+2. Tree: Stores the content of a directory and can point to blobs or other trees. Trees represent the directory structure within a Git repository.
+
+Git provides the ability to create aliases for frequently used commands. You can set an alias in the global config file by adding the following lines under the `[alias]` section:
+
+```
 [alias]
-        s = status;
+    s = status
+```
 
-with this, whenever you run git s it will perform the same function as git status.
-To do it in the command line - git config --global alias.<alias name> <git command>
+With this example, running `git s` will have the same effect as running `git status`. You can also set aliases directly from the command line using the `git config` command: `git config --global alias.<alias name> <git command>`.
 
 
-git alias link
-https://www.durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples/
-https://gist.github.com/mwhite/6887990
-https://github.com/GitAlias/gitalias
+Here are some useful links for Git aliases:
+
+1. [Must-Have Git Aliases – Advanced Examples](https://www.durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples/): This blog post provides advanced examples of Git aliases that can improve your workflow and productivity.
+
+2. [Git Alias Gist by Matthew White](https://gist.github.com/mwhite/6887990): This Gist contains a collection of Git aliases shared by Matthew White. It includes aliases for various Git commands and operations.
+
+3. [GitAlias GitHub Repository](https://github.com/GitAlias/gitalias): This GitHub repository hosts the GitAlias project, which aims to provide a comprehensive collection of useful Git aliases. The repository includes a variety of aliases contributed by the Git community.
+
+You can explore these resources to find and customize Git aliases that suit your needs and enhance your Git experience.
+
