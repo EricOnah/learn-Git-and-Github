@@ -1,16 +1,16 @@
-<<<<<<< HEAD
+<<<<<<<< HEAD
 
-##another code for switching between branches - code: git checkout <branch name>
+##Another code for switching between branches - code: git checkout <branch name>
 =======
-##here I will be dropping extra tips on how to use git
+##Here I will be providing some additional tips on how to use Git.
 
 #Hashes are what enable Git to share data efficiently between repositories. If two files are the same, 
 their hashes are guaranteed to be the same. Similarly, if two commits contain the same files and 
 have the same ancestors, their hashes will be the same as well.
 
-##another code for switching between branches - code: git checkout <branch name>
+##Another code for switching between branches - code: git checkout <branch name>
 
-##before attempting to delete anything, alway make a backup.
+##Before attempting to delete anything, always make a backup.
 
-##types of merge: Fast forward, Merge commit, conflicts
+##Types of merge: Fast forward, Merge commit, conflicts
 
