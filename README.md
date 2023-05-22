@@ -4,12 +4,13 @@ This readme provides a crash course on Git, a popular version control system tha
 
 ## Table of Contents
 
-- [Introduction to Git](#introduction-to-git)
-- [Setting Up Git](#setting-up-git)
-- [Basic Git Commands](#basic-git-commands)
-- [Branching and Merging](#branching-and-merging)
-- [Working with Remote Repositories](#working-with-remote-repositories)
-- [Additional Tips and Tricks](#additional-tips-and-tricks)
+- [Git Crash Course](#git-crash-course)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction to Git](#introduction-to-git)
+  - [Setting Up Git](#setting-up-git)
+  - [Basic Git Commands](#basic-git-commands)
+  - [Branching and Merging](#branching-and-merging)
+  - [Working with Remote Repositories](#working-with-remote-repositories)
 
 ## Introduction to Git
 
