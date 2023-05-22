@@ -66,9 +66,6 @@ For files to ignore while working on a project, visit: https://www.toptal.com/de
 
 
 
-
-Proofread:
-
 ## Branches (Alternative Timelines)
 Branches in Git allow you to work on a project in a different timeline, where the main branch or parent branch is not affected by the changes you make in the new branch.
 
@@ -162,9 +159,6 @@ git diff <branch-name>...<second-branch-name> <filename>
 ```
 
 
-
-
-
 ## git stash
 The `git stash` command is used to save changes without staging or committing them so that you can easily switch branches without losing your work.
 
@@ -222,9 +216,6 @@ Note: Run `git clone` in a folder where Git has not been initialized because it 
 
 
 
-
-
-Proofread:
 
 ## GitHub
 
@@ -288,7 +279,6 @@ This way git can track the changes.
 
 
 
-Proofread:
 
 ## git pull
 
@@ -356,8 +346,6 @@ When you use `git tag` without any additional arguments, the tag name is added t
 To add a tag to an earlier commit, you can use the command `git tag <tag name> <commit hash>`. Replace `<tag name>` with the desired name for the tag and `<commit hash>` with the hash of the commit you want to tag.
 
 You can compare tags using the `git diff` command. To compare two tag versions, use the command `git diff <tag version> <tag version>`. Replace `<tag version>` with the names of the tags you want to compare. This command will show the differences between the two tagged versions.
-
-Continuation:
 
 There are two types of tags in Git:
 
