@@ -269,11 +269,12 @@ There's a difference when you work with a repository you cloned from GitHub and 
 The `git fetch` command is used to download changes from a remote repository to your local repository, but not to your workspace. The downloaded changes don't clash or merge with your local repository.
 
 To fetch a particular branch from the remote repository and not the whole branch, use `git fetch <remote-label> <branch>`.
+To switch to the fetched branch, use `git checkout FETCH_HEAD`.Now you can see the fils in your remote branch and compare differences.
 
 To see changes by order of contributors on the remote repository on your machine, you need to perform a fetch request. These changes won't be tracked by Git on your local machine until you fetch them.
 
 To track changes in your remote repository when you did not clone the remote repository, you can use `git push --set-upstream origin master`. This will connect the master branch in your local machine to the master branch
-in your remote repo branch)
+in your remote repo branch
 This way git can track the changes.
 
 
